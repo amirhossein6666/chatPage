@@ -16,9 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from chat.views import messageListApiView
+from chat.views import messageListApiView, messageCreateApiView
+from rest_framework_simplejwt.views import TokenObtainPairView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', messageListApiView.as_view() )
-]
+    path('', messageListApiView.as_view(), name= 'PublicMessageList'),
+    path('create/public', messageCreateApiView.as_view(), name= 'publicMessageCreate'),
+    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair')]
