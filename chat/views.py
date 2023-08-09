@@ -67,3 +67,14 @@ def privateMessageCreate(request):
             return Response(serializedPrivateMessage.data, status=status.HTTP_201_CREATED)
         return Response(serializedPrivateMessage.errors, status=status.HTTP_400_BAD_REQUEST)
 
+
+@api_view(['DELETE'])
+@permission_classes([IsAuthenticated])
+def privateMessageDelete(request, id):
+    try:
+        private_message= privateMessage.objects.get(pk=id)
+    except privateMessage.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)        
+    if request.method == 'DELETE':
+        private_message.delete()
+        return Response (status=status.HTTP_204_NO_CONTENT)
