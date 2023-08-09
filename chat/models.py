@@ -9,6 +9,7 @@ class publicMessage(models.Model):
 
     def __str__(self) :
         return self.title
+    
 class privateMessage(models.Model):
     title = models.CharField(max_length=50)
     body = models.TextField(max_length=150)

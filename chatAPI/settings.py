@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'chat',
     'rest_framework',
     'user',
+    'drf_yasg',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
