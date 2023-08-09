@@ -21,6 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('public/', include('chat.urls')),
     path('private/', include('chat.urls2')),
-#     path('', include('user.urls')),
+    path('', include('user.urls')),
     path('doc/', include(swagger))
 ]
